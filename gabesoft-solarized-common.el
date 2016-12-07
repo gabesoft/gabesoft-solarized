@@ -102,6 +102,8 @@
                (str      (gs-get-color-for-variant variant :green))
                (type     (gs-get-color-for-variant variant :yellow))
                (var      (gs-get-color-for-variant variant :base1))
+               (suc      (gs-get-color-for-variant variant :green))
+               (err      (gs-get-color-for-variant variant :red))
                (warning  (gs-get-color-for-variant variant :red))
                (warning2 (gs-get-color-for-variant variant :magenta))
 
@@ -119,25 +121,38 @@
                theme-name
 
                `(default ((,class (:background ,bg1 :foreground ,fg1))))
+               `(default-italic ((,class (:italic t))))
+
+               `(error ((,class (:foreground ,err))))
+               `(warning ((,class (:foreground ,warning))))
 
                `(ac-completion-face ((,class (:underline t :foreground ,keyword))))
                `(cursor ((,class (:background ,bg3))))
-               `(default-italic ((,class (:italic t))))
                `(ffap ((,class (:foreground ,fg4))))
                `(fringe ((,class (:background ,bg2 :foreground ,fg4))))
+               `(header-line ((,class :background ,bg4)))
                `(highlight ((,class (:foreground ,fg3 :background ,bg3))))
                `(hl-line ((,class (:background  ,bg2))))
                `(icompletep-determined ((,class :foreground ,builtin)))
                `(isearch ((,class (:bold t :foreground ,warning :background ,bg3))))
                `(lazy-highlight ((,class (:foreground ,fg2 :background ,bg3))))
                `(link ((,class (:foreground ,const :underline t))))
+               `(link-visited ((,class (:foreground ,comment :underline t))))
+               `(match ((,class (:background ,bg3 :foreground ,fg1))))
                `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
+               `(page-break-lines ((,class (:foreground ,fg2))))
                `(region ((,class (:background ,fg1 :foreground ,bg1))))
+               `(secondary-selection ((,class (:background ,bg3))))
                `(show-paren-match-face ((,class (:background ,warning))))
                `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
+               `(success ((,class (:foreground ,suc))))
+               `(tooltip ((,class (:background ,bg2 :foreground ,fg1 :bold nil :italic nil :underline nil))))
                `(trailing-whitespace ((,class :foreground nil :background ,warning)))
                `(vertical-border ((,class (:foreground ,fg3))))
-               `(warning ((,class (:foreground ,warning))))
+
+
+               `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
+               `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
 
                `(font-lock-builtin-face ((,class (:foreground ,builtin))))
                `(font-lock-comment-face ((,class (:foreground ,comment))))
