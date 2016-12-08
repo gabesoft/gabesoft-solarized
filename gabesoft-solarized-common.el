@@ -83,16 +83,21 @@
         ((eq name :fg2) (if (eq variant 'dark) (gs-get-color :base0) (gs-get-color :base00)))
         (t (gs-get-color name))))
 
+(defun gs-flip-variant (variant)
+  "Revert the specified variant."
+  (if (eq variant 'dark) 'light 'dark))
+
+
 (defun gs-create-gabesoft-solarized-theme (variant theme-name)
   (gs-dyn-let ((class '((class color) (min-colors 89)))
                (bg1      (gs-get-color-for-variant variant :bg1))
                (bg2      (gs-get-color-for-variant variant :bg2))
-               (bg3      (gs-get-color-for-variant variant :bg1))
-               (bg4      (gs-get-color-for-variant variant :bg2))
+               (bg3      (gs-get-color-for-variant (gs-flip-variant variant) :bg1))
+               (bg4      (gs-get-color-for-variant (gs-flip-variant variant) :bg2))
                (fg1      (gs-get-color-for-variant variant :fg1))
                (fg2      (gs-get-color-for-variant variant :fg2))
-               (fg3      (gs-get-color-for-variant variant :fg1))
-               (fg4      (gs-get-color-for-variant variant :fg2))
+               (fg3      (gs-get-color-for-variant (gs-flip-variant variant) :fg1))
+               (fg4      (gs-get-color-for-variant (gs-flip-variant variant) :fg2))
 
                (builtin  (gs-get-color-for-variant variant :cyan))
                (keyword  (gs-get-color-for-variant variant :blue))
@@ -131,7 +136,7 @@
                `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
 
                `(cursor ((,class (:background ,bg3))))
-               `(custom-button ((,class :background ,bg2 :foreground ,fg1 :box (:line-width 0 :style released-button))))
+               `(custom-button ((,class :background ,bg2 :foreground ,fg1 :box nil)))
                `(ffap ((,class (:foreground ,fg4))))
                `(fringe ((,class (:background ,bg1 :foreground ,yellow))))
                `(header-line ((,class :background ,bg4)))
@@ -185,14 +190,14 @@
                `(avy-lead-face-2 ((,class (:background ,bg2 :foreground ,green))))
 
                ;; cider
-               `(cider-enlightened ((,class (:background nil :box (:color ,yellow :line-width 0 :style nil) :foreground ,yellow))))
+               `(cider-enlightened ((,class (:background nil :box nil :foreground ,yellow))))
                `(cider-enlightened-local ((,class (:foreground ,yellow))))
-               `(cider-instrumented-face ((,class (:background nil :box (:color ,red :line-width 0 :style nil) :foreground ,red))))
-               `(cider-result-overlay-face ((,class (:background nil :box (:color ,blue :line-width 0 :style nil) :foreground ,blue))))
+               `(cider-instrumented-face ((,class (:background nil :box nil :foreground ,red))))
+               `(cider-result-overlay-face ((,class (:background nil :box nil :foreground ,blue))))
                `(cider-test-error-face ((,class (:background ,err :foreground ,bg1))))
                `(cider-test-failure-face ((,class (:background ,err :foreground ,bg1))))
                `(cider-test-success-face ((,class (:background ,suc :foreground ,bg1))))
-               `(cider-traced-face ((,class :box (:color ,cyan :line-width 0 :style nil))))
+               `(cider-traced-face ((,class :box nil)))
 
                ;; company
                `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
@@ -536,11 +541,11 @@
                `(markdown-header-face-6 ((,class (:bold nil :foreground ,violet))))
 
                ;; mode-line
-               `(mode-line ((,class (:box (:line-width 0 :color fg1) :bold t :foreground ,fg4 :background ,bg2))))
-               `(mode-line-buffer-id ((,class (:bold t :foreground ,blue :background bg1))))
-               `(mode-line-emphasis ((,class (:foreground ,fg1 :background bg1))))
-               `(mode-line-highlight ((,class (:foreground ,keyword :box (:line-width 0) :weight bold))))
-               `(mode-line-inactive ((,class (:box (:line-width 0 :color bg1 :style pressed-button) :foreground ,var :background ,bg2 :weight normal))))
+               `(mode-line ((,class (:box nil :bold t :foreground ,fg4 :background ,bg2))))
+               `(mode-line-buffer-id ((,class (:bold t :foreground ,blue :background ,bg1))))
+               `(mode-line-emphasis ((,class (:foreground ,fg1 :background ,bg1))))
+               `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
+               `(mode-line-inactive ((,class (:box nil :foreground ,var :background ,bg2 :weight normal))))
 
                ;; mu4e
                `(mu4e-cited-1-face ((,class (:foreground ,fg2))))
@@ -553,12 +558,12 @@
                `(org-agenda-date-today ((,class (:weight bold :foreground ,keyword :height 1.4))))
                `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
                `(org-agenda-done ((,class (:foreground ,bg4))))
-               `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box (:color ,fg4 :line-width 0) :background ,bg3))))
+               `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box nil :background ,bg3))))
                `(org-block ((,class (:foreground ,fg3))))
                `(org-code ((,class (:foreground ,fg2))))
                `(org-date ((,class (:underline t :foreground ,var) )))
                `(org-document-info-keyword ((,class (:foreground ,func))))
-               `(org-done ((,class (:box (:line-width 0 :color ,bg3) :bold t :foreground ,bg4))))
+               `(org-done ((,class (:box nil :bold t :foreground ,bg4))))
                `(org-ellipsis ((,class (:foreground ,builtin))))
                `(org-footnote  ((,class (:underline t :foreground ,fg4))))
                `(org-hide ((,class (:foreground ,fg4))))
@@ -572,7 +577,7 @@
                `(org-scheduled-today ((,class (:foreground ,func :weight bold :height 1.2))))
                `(org-sexp-date ((,class (:foreground ,fg4))))
                `(org-special-keyword ((,class (:foreground ,func))))
-               `(org-todo ((,class (:box (:line-width 0 :color ,bg1) :foreground ,keyword :bold t))))
+               `(org-todo ((,class (:box nil :foreground ,keyword :bold t))))
                `(org-verbatim ((,class (:foreground ,fg4))))
                `(org-verse ((,class (:inherit org-block :slant italic))))
                `(org-warning ((,class (:underline t :foreground ,warning))))
