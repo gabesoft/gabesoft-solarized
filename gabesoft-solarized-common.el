@@ -92,12 +92,12 @@
   (gs-dyn-let ((class '((class color) (min-colors 89)))
                (bg1      (gs-get-color-for-variant variant :bg1))
                (bg2      (gs-get-color-for-variant variant :bg2))
-               (bg3      (gs-get-color-for-variant (gs-flip-variant variant) :bg1))
-               (bg4      (gs-get-color-for-variant (gs-flip-variant variant) :bg2))
+               (bg3      (gs-get-color-for-variant (gs-flip-variant variant) :fg1))
+               (bg4      (gs-get-color-for-variant (gs-flip-variant variant) :fg2))
                (fg1      (gs-get-color-for-variant variant :fg1))
                (fg2      (gs-get-color-for-variant variant :fg2))
-               (fg3      (gs-get-color-for-variant (gs-flip-variant variant) :fg1))
-               (fg4      (gs-get-color-for-variant (gs-flip-variant variant) :fg2))
+               (fg3      (gs-get-color-for-variant (gs-flip-variant variant) :bg1))
+               (fg4      (gs-get-color-for-variant (gs-flip-variant variant) :bg2))
 
                (builtin  (gs-get-color-for-variant variant :cyan))
                (keyword  (gs-get-color-for-variant variant :blue))
@@ -109,8 +109,8 @@
                (var      (gs-get-color-for-variant variant :base1))
                (suc      (gs-get-color-for-variant variant :green))
                (err      (gs-get-color-for-variant variant :red))
-               (warning  (gs-get-color-for-variant variant :red))
-               (warning2 (gs-get-color-for-variant variant :magenta))
+               (war      (gs-get-color-for-variant variant :red))
+               (war2     (gs-get-color-for-variant variant :magenta))
 
                (base03 (gs-get-color :base03))
                (base02 (gs-get-color :base02))
@@ -136,56 +136,49 @@
 
                ;; basics
                `(default ((,class (:background ,bg1 :foreground ,fg1))))
-               ;; `(default ((,class (:foreground ,base0 :background ,base03))))
                `(default-italic ((,class (:italic t))))
 
                `(error ((,class (:foreground ,err))))
-               `(warning ((,class (:foreground ,warning))))
+               `(warning ((,class (:foreground ,war))))
+               `(success ((,class (:foreground ,suc))))
+
+               `(highlight ((,class (:foreground ,yellow :background ,bg2 :bold t))))
+               `(isearch ((,class (:bold t :foreground ,war :background ,bg2))))
+               `(lazy-highlight ((,class (:foreground ,yellow :background ,bg2 :bold t))))
+
+               '(button ((t (:underline t))))
+               `(cursor ((,class (:background ,bg3))))
+               `(custom-button ((,class :background ,bg2 :foreground ,fg1 :box nil)))
+               `(escape-glyph ((,class (:foreground ,violet))))
+               `(ffap ((,class (:foreground ,fg4))))
+               `(fringe ((,class (:background ,bg1 :foreground ,yellow))))
+               `(hl-line ((,class (:background  ,bg2))))
+               `(hl-line-face ((,class (:background  ,bg2))))
+               `(icompletep-determined ((,class :foreground ,builtin)))
+               `(link ((,class (:foreground ,const :underline t))))
+               `(link-visited ((,class (:foreground ,comment :underline t))))
+               `(match ((,class (:background ,bg2 :foreground ,fg1 :weight bold))))
+               `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
+               `(page-break-lines ((,class (:foreground ,fg2))))
+               `(region ((,class (:background ,bg3 :foreground ,fg3))))
+               `(secondary-selection ((,class (:background ,base02))))
+               `(secondary-selection ((,class (:background ,bg4))))
+               `(shadow ((,class (:foreground ,fg2 :background ,bg2))))
+               `(show-paren-match-face ((,class (:background ,war))))
+               `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
+               `(tooltip ((,class (:background ,bg1
+                                               :foreground ,fg1
+                                               :bold nil
+                                               :italic nil
+                                               :underline nil
+                                               :box (:line-width 2 :color ,bg2)))))
+               `(trailing-whitespace ((,class :foreground nil :background ,war)))
+               `(vertical-border ((,class (:foreground ,bg2))))
 
                `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
                `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
 
-               `(shadow ((,class (:foreground ,fg2))))
-               `(match ((,class (:background ,bg2 :foreground ,base1 :weight bold))))
-
-               `(cursor ((,class (:background ,bg3))))
-               `(custom-button ((,class :background ,bg2 :foreground ,fg1 :box nil)))
-               `(ffap ((,class (:foreground ,fg4))))
-               `(fringe ((,class (:background ,bg1 :foreground ,yellow))))
-               ;; `(header-line ((,class :background ,bg4)))
-
-               `(header-line
-                 ((,class (:inverse-video unspecified
-                                          :overline nil
-                                          :underline ,nil
-                                          :foreground ,base1
-                                          :background ,bg2
-                                          :box (:line-width 2 :color ,bg2 :style unspecified)))))
-
-               ;; `(highlight ((,class (:background ,base02))))
-               '(button ((t (:underline t))))
-               `(highlight ((,class (:foreground ,yellow :background ,bg2))))
-               `(hl-line ((,class (:background  ,bg2))))
-               `(icompletep-determined ((,class :foreground ,builtin)))
-               `(isearch ((,class (:bold t :foreground ,warning :background ,bg2))))
-               `(lazy-highlight ((,class (:foreground ,yellow :background ,bg2))))
-               `(link ((,class (:foreground ,const :underline t))))
-               `(link-visited ((,class (:foreground ,comment :underline t))))
-               ;; `(match ((,class (:background ,bg3 :foreground ,fg1))))
-               `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
-               `(page-break-lines ((,class (:foreground ,fg2))))
-               `(region ((,class (:foreground ,base03 :background ,base1))))
-               `(secondary-selection ((,class (:background ,base02))))
-               ;; `(region ((,class (:background ,fg1 :foreground ,bg1))))
-               ;; `(secondary-selection ((,class (:background ,bg3))))
-               `(show-paren-match-face ((,class (:background ,warning))))
-               `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
-               `(success ((,class (:foreground ,suc))))
-               `(tooltip ((,class (:background ,bg2 :foreground ,fg1 :bold nil :italic nil :underline nil))))
-               `(trailing-whitespace ((,class :foreground nil :background ,warning)))
-               `(vertical-border ((,class (:foreground ,fg3))))
-
-               `(font-lock-builtin-face ((,class (:foreground ,builtin :foreground ,base0 :weight ,'normal))))
+               `(font-lock-builtin-face ((,class (:foreground ,builtin :bold nil :italic nil))))
                `(font-lock-comment-delimiter-face ((,class (:foreground ,comment :background ,bg1 :slant ,'normal))))
                `(font-lock-comment-face ((,class (:foreground ,comment :background ,bg1))))
                `(font-lock-constant-face ((,class (:foreground ,const))))
@@ -198,7 +191,7 @@
                `(font-lock-string-face ((,class (:foreground ,str))))
                `(font-lock-type-face ((,class (:foreground ,type ))))
                `(font-lock-variable-name-face ((,class (:foreground ,var))))
-               `(font-lock-warning-face ((,class (:foreground ,warning :background ,bg2))))
+               `(font-lock-warning-face ((,class (:foreground ,war :background ,bg2))))
 
                ;;ahs
                `(ahs-face ((,class (:background ,bg3))))
@@ -269,7 +262,7 @@
                `(dired-marked ((,class (:foreground ,magenta :inherit bold))))
                `(dired-perm-write ((,class (:foreground ,fg1 :underline t))))
                `(dired-symlink ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
-               `(dired-warning ((,class (:foreground ,warning))))
+               `(dired-warning ((,class (:foreground ,war))))
 
                ;; ediff
                `(ediff-current-diff-A ((,class(:background ,bg2 :foreground ,red))))
@@ -341,13 +334,13 @@
                `(flycheck-error-list-checker-name ((,class (:foreground ,keyword))))
                `(flycheck-fringe-error ((,class (:foreground ,err :inherit bold))))
                `(flycheck-fringe-info ((,class (:foreground ,keyword :inherit bold))))
-               `(flycheck-fringe-warning ((,class (:foreground ,warning :inherit bold))))
+               `(flycheck-fringe-warning ((,class (:foreground ,war :inherit bold))))
                `(flycheck-info ((,(append '((supports :underline (:style line))) class)
                                  (:underline (:style line :color ,keyword)))
                                 (,class (:foreground ,fg1 :background ,keyword :inherit bold :underline t))))
                `(flycheck-warning ((,(append '((supports :underline (:style line))) class)
-                                    (:underline (:style line :color ,warning)))
-                                   (,class (:foreground ,fg1 :background ,warning :inherit bold :underline t))))
+                                    (:underline (:style line :color ,war)))
+                                   (,class (:foreground ,fg1 :background ,war :inherit bold :underline t))))
 
                ;; jabber
                `(jabber-activity-face ((,class (:inherit bold :foreground ,red))))
@@ -369,7 +362,7 @@
 
                ;; git-gutter
                `(git-gutter-fr:added ((,class (:foreground ,green :inherit bold))))
-               `(git-gutter-fr:deleted ((,class (:foreground ,warning :inherit bold))))
+               `(git-gutter-fr:deleted ((,class (:foreground ,war :inherit bold))))
                `(git-gutter-fr:modified ((,class (:foreground ,keyword :inherit bold))))
 
                ;; git-timemachine
@@ -381,12 +374,37 @@
                `(gnus-header-from ((,class (:foreground ,var))))
                `(gnus-header-name ((,class (:foreground ,type))))
                `(gnus-header-subject ((,class (:foreground ,func :bold t))))
-               `(gnus-summary-cancelled ((,class (:background ,warning :foreground ,bg1))))
+               `(gnus-summary-cancelled ((,class (:background ,war :foreground ,bg1))))
 
                ;; guide-key
                `(guide-key/highlight-command-face ((,class (:foreground ,fg1))))
                `(guide-key/key-face ((,class (:foreground ,keyword))))
                `(guide-key/prefix-command-face ((,class (:foreground ,keyword :inherit bold))))
+
+               ;; header-line & mode-line
+               `(header-line
+                 ((,class (:inverse-video unspecified
+                                          :overline ,bg2
+                                          :underline ,bg2
+                                          :foreground ,base1
+                                          :background ,bg2
+                                          :box (:line-width 2 :color ,bg2 :style unspecified)))))
+               `(mode-line
+                 ((,class (:inverse-video unspecified
+                                          :overline ,bg2
+                                          :underline ,bg2
+                                          :foreground ,bg1
+                                          :background ,fg2
+                                          :box (:line-width 1 :color ,bg2 :style unspecified)
+                                          ))))
+               `(mode-line-buffer-id ((,class (:foreground unspecified :inherit bold))))
+               `(mode-line-inactive
+                 ((,class (:inverse-video unspecified
+                                          :overline ,bg2
+                                          :underline ,bg2
+                                          :foreground ,fg1
+                                          :background ,bg2
+                                          :box (:line-width 1 :color ,bg2 :style unspecified)))))
 
                ;; helm
                `(helm-bookmark-directory ((,class (:inherit helm-ff-directory))))
@@ -407,7 +425,7 @@
                `(helm-ff-dotted-symlink-directory ((,class (:foreground ,cyan :background ,bg1 :inherit bold))))
                `(helm-ff-executable ((,class (:foreground ,var :background ,bg1 :weight normal))))
                `(helm-ff-file ((,class (:foreground ,fg1 :background ,bg1 :weight normal))))
-               `(helm-ff-invalid-symlink ((,class (:foreground ,warning2 :background ,bg1 :weight bold))))
+               `(helm-ff-invalid-symlink ((,class (:foreground ,war2 :background ,bg1 :weight bold))))
                `(helm-ff-prefix ((,class (:foreground ,bg1 :background ,keyword :weight normal))))
                `(helm-ff-symlink ((,class (:foreground ,keyword :background ,bg1 :weight bold))))
                `(helm-grep-cmd-line ((,class (:foreground ,fg1 :background ,bg1))))
@@ -464,7 +482,7 @@
 
                ;; ido
                `(ido-first-match ((,class (:foreground ,keyword :bold t))))
-               `(ido-only-match ((,class (:foreground ,warning))))
+               `(ido-only-match ((,class (:foreground ,war))))
                `(ido-subdir ((,class (:foreground ,keyword))))
                `(ido-vertical-match-face ((,class (:foreground ,yellow :underline nil))))
 
@@ -493,7 +511,7 @@
                `(js2-jsdoc-value ((,class (:foreground ,str))))
                `(js2-private-function-call ((,class (:foreground ,const))))
                `(js2-private-member ((,class (:foreground ,fg3))))
-               `(js3-error-face ((,class (:underline ,warning))))
+               `(js3-error-face ((,class (:underline ,war))))
                `(js3-external-variable-face ((,class (:foreground ,var))))
                `(js3-function-param-face ((,class (:foreground ,fg2))))
                `(js3-instance-member-face ((,class (:foreground ,const))))
@@ -548,7 +566,7 @@
                `(magit-log-head-label-tags ((,class (:background ,magenta :foreground ,bg1 :inherit bold))))
                `(magit-log-head-label-wip ((,class (:background ,cyan :foreground ,bg1 :inherit bold))))
                `(magit-log-sha1 ((,class (:foreground ,str))))
-               `(magit-process-ng ((,class (:foreground ,warning :weight bold))))
+               `(magit-process-ng ((,class (:foreground ,war :weight bold))))
                `(magit-process-ok ((,class (:foreground ,func :inherit bold))))
                `(magit-section-heading        ((,class (:foreground ,keyword :inherit bold))))
                `(magit-section-highlight      ((,class (:background ,bg2))))
@@ -566,48 +584,6 @@
                `(markdown-header-face-4 ((,class (:bold nil :foreground ,green :background ,bg1))))
                `(markdown-header-face-5 ((,class (:bold nil :foreground ,magenta))))
                `(markdown-header-face-6 ((,class (:bold nil :foreground ,violet))))
-
-               ;; mode-line
-               ;; `(mode-line
-               ;;   ((,class (:inverse-video unspecified
-               ;;                            :overline ,base02
-               ;;                            :underline ,base02
-               ;;                            :foreground ,base0
-               ;;                            :background ,base02
-               ;;                            :box (:line-width 1 :color ,base02
-               ;;                                              :style unspecified)
-               ;;                            ))))
-               ;; `(mode-line-buffer-id ((,class (:foreground ,base1 :weight bold))))
-               ;; `(mode-line-inactive
-               ;;   ((,class (:inverse-video unspecified
-               ;;                            :overline ,base02
-               ;;                            :underline ,base02
-               ;;                            :foreground ,base01
-               ;;                            :background ,base03
-               ;;                            :box (:line-width 1 :color ,base03
-               ;;                                              :style unspecified)
-               ;;                            ))))
-               `(mode-line
-                 ((,class (:inverse-video unspecified
-                                          :overline ,fg2
-                                          :underline ,nil
-                                          :foreground ,bg1
-                                          :background ,fg2
-                                          :box (:line-width 1 :color ,fg2 :style unspecified)
-                                          ))))
-               `(mode-line-buffer-id ((,class (:foreground ,'unspecified :weight bold))))
-               `(mode-line-inactive
-                 ((,class (:inverse-video unspecified
-                                          :overline ,bg2
-                                          :underline ,nil
-                                          :foreground ,fg2
-                                          :background ,bg2
-                                          :box (:line-width 1 :color ,bg2 :style unspecified)))))
-               ;; `(mode-line ((,class (:box nil :bold t :foreground ,fg4 :background ,bg2))))
-               ;; `(mode-line-buffer-id ((,class (:bold t :foreground ,blue :background ,bg1))))
-               ;; `(mode-line-emphasis ((,class (:foreground ,fg1 :background ,bg1))))
-               ;; `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
-               ;; `(mode-line-inactive ((,class (:box nil :foreground ,var :background ,bg2 :weight normal))))
 
                ;; mu4e
                `(mu4e-cited-1-face ((,class (:foreground ,fg2))))
@@ -647,7 +623,7 @@
                `(org-todo ((,class (:box nil :foreground ,keyword :bold t))))
                `(org-verbatim ((,class (:foreground ,fg4))))
                `(org-verse ((,class (:inherit org-block :slant italic))))
-               `(org-warning ((,class (:underline t :foreground ,warning))))
+               `(org-warning ((,class (:underline t :foreground ,war))))
 
                ;; powerline
                `(powerline-active1 ((,class (:background ,base00 :foreground ,base03))))
@@ -692,7 +668,7 @@
                ;; `(rainbow-delimiters-depth-6-face ((,class :foreground ,fg1)))
                ;; `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
                ;; `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
-               ;; `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
+               ;; `(rainbow-delimiters-unmatched-face ((,class :foreground ,war)))
 
                ;; undo-tree
                `(undo-tree-visualizer-current-face ((,class :foreground ,builtin)))
@@ -717,7 +693,7 @@
                `(spaceline-python-venv ((,class (:foreground ,fg1))))
                `(spaceline-flycheck-error  ((,class (:foreground ,err))))
                `(spaceline-flycheck-info   ((,class (:foreground ,keyword))))
-               `(spaceline-flycheck-warning((,class (:foreground ,warning))))
+               `(spaceline-flycheck-warning((,class (:foreground ,war))))
 
                ;; spacemacs
                `(spacemacs-transient-state-title-face ((,class (:background nil :foreground ,fg1 :box nil :inherit bold))))
