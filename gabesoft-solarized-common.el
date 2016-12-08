@@ -112,6 +112,15 @@
                (warning  (gs-get-color-for-variant variant :red))
                (warning2 (gs-get-color-for-variant variant :magenta))
 
+               (base03 (gs-get-color :base03))
+               (base02 (gs-get-color :base02))
+               (base01 (gs-get-color :base01))
+               (base00 (gs-get-color :base00))
+               (base0  (gs-get-color :base0))
+               (base1  (gs-get-color :base1))
+               (base2  (gs-get-color :base2))
+               (base3  (gs-get-color :base3))
+
                (blue    (gs-get-color-for-variant variant :blue))
                (cyan    (gs-get-color-for-variant variant :cyan))
                (green   (gs-get-color-for-variant variant :green))
@@ -127,6 +136,7 @@
 
                ;; basics
                `(default ((,class (:background ,bg1 :foreground ,fg1))))
+               ;; `(default ((,class (:foreground ,base0 :background ,base03))))
                `(default-italic ((,class (:italic t))))
 
                `(error ((,class (:foreground ,err))))
@@ -135,11 +145,25 @@
                `(eval-sexp-fu-flash ((,class (:background ,suc :foreground ,bg1))))
                `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg1))))
 
+               `(shadow ((,class (:foreground ,fg2))))
+               `(match ((,class (:background ,bg2 :foreground ,base1 :weight bold))))
+
                `(cursor ((,class (:background ,bg3))))
                `(custom-button ((,class :background ,bg2 :foreground ,fg1 :box nil)))
                `(ffap ((,class (:foreground ,fg4))))
                `(fringe ((,class (:background ,bg1 :foreground ,yellow))))
-               `(header-line ((,class :background ,bg4)))
+               ;; `(header-line ((,class :background ,bg4)))
+
+               `(header-line
+                 ((,class (:inverse-video unspecified
+                                          :overline nil
+                                          :underline ,nil
+                                          :foreground ,base1
+                                          :background ,bg2
+                                          :box (:line-width 2 :color ,bg2 :style unspecified)))))
+
+               ;; `(highlight ((,class (:background ,base02))))
+               '(button ((t (:underline t))))
                `(highlight ((,class (:foreground ,yellow :background ,bg2))))
                `(hl-line ((,class (:background  ,bg2))))
                `(icompletep-determined ((,class :foreground ,builtin)))
@@ -147,11 +171,13 @@
                `(lazy-highlight ((,class (:foreground ,yellow :background ,bg2))))
                `(link ((,class (:foreground ,const :underline t))))
                `(link-visited ((,class (:foreground ,comment :underline t))))
-               `(match ((,class (:background ,bg3 :foreground ,fg1))))
+               ;; `(match ((,class (:background ,bg3 :foreground ,fg1))))
                `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
                `(page-break-lines ((,class (:foreground ,fg2))))
-               `(region ((,class (:background ,fg1 :foreground ,bg1))))
-               `(secondary-selection ((,class (:background ,bg3))))
+               `(region ((,class (:foreground ,base03 :background ,base1))))
+               `(secondary-selection ((,class (:background ,base02))))
+               ;; `(region ((,class (:background ,fg1 :foreground ,bg1))))
+               ;; `(secondary-selection ((,class (:background ,bg3))))
                `(show-paren-match-face ((,class (:background ,warning))))
                `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
                `(success ((,class (:foreground ,suc))))
@@ -159,8 +185,9 @@
                `(trailing-whitespace ((,class :foreground nil :background ,warning)))
                `(vertical-border ((,class (:foreground ,fg3))))
 
-               `(font-lock-builtin-face ((,class (:foreground ,builtin))))
-               `(font-lock-comment-face ((,class (:foreground ,comment))))
+               `(font-lock-builtin-face ((,class (:foreground ,builtin :foreground ,base0 :weight ,'normal))))
+               `(font-lock-comment-delimiter-face ((,class (:foreground ,comment :background ,bg1 :slant ,'normal))))
+               `(font-lock-comment-face ((,class (:foreground ,comment :background ,bg1))))
                `(font-lock-constant-face ((,class (:foreground ,const))))
                `(font-lock-doc-face ((,class (:foreground ,comment))))
                `(font-lock-function-name-face ((,class (:foreground ,func ))))
@@ -541,11 +568,46 @@
                `(markdown-header-face-6 ((,class (:bold nil :foreground ,violet))))
 
                ;; mode-line
-               `(mode-line ((,class (:box nil :bold t :foreground ,fg4 :background ,bg2))))
-               `(mode-line-buffer-id ((,class (:bold t :foreground ,blue :background ,bg1))))
-               `(mode-line-emphasis ((,class (:foreground ,fg1 :background ,bg1))))
-               `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
-               `(mode-line-inactive ((,class (:box nil :foreground ,var :background ,bg2 :weight normal))))
+               ;; `(mode-line
+               ;;   ((,class (:inverse-video unspecified
+               ;;                            :overline ,base02
+               ;;                            :underline ,base02
+               ;;                            :foreground ,base0
+               ;;                            :background ,base02
+               ;;                            :box (:line-width 1 :color ,base02
+               ;;                                              :style unspecified)
+               ;;                            ))))
+               ;; `(mode-line-buffer-id ((,class (:foreground ,base1 :weight bold))))
+               ;; `(mode-line-inactive
+               ;;   ((,class (:inverse-video unspecified
+               ;;                            :overline ,base02
+               ;;                            :underline ,base02
+               ;;                            :foreground ,base01
+               ;;                            :background ,base03
+               ;;                            :box (:line-width 1 :color ,base03
+               ;;                                              :style unspecified)
+               ;;                            ))))
+               `(mode-line
+                 ((,class (:inverse-video unspecified
+                                          :overline ,fg2
+                                          :underline ,nil
+                                          :foreground ,bg1
+                                          :background ,fg2
+                                          :box (:line-width 1 :color ,fg2 :style unspecified)
+                                          ))))
+               `(mode-line-buffer-id ((,class (:foreground ,'unspecified :weight bold))))
+               `(mode-line-inactive
+                 ((,class (:inverse-video unspecified
+                                          :overline ,bg2
+                                          :underline ,nil
+                                          :foreground ,fg2
+                                          :background ,bg2
+                                          :box (:line-width 1 :color ,bg2 :style unspecified)))))
+               ;; `(mode-line ((,class (:box nil :bold t :foreground ,fg4 :background ,bg2))))
+               ;; `(mode-line-buffer-id ((,class (:bold t :foreground ,blue :background ,bg1))))
+               ;; `(mode-line-emphasis ((,class (:foreground ,fg1 :background ,bg1))))
+               ;; `(mode-line-highlight ((,class (:foreground ,keyword :box nil :weight bold))))
+               ;; `(mode-line-inactive ((,class (:box nil :foreground ,var :background ,bg2 :weight normal))))
 
                ;; mu4e
                `(mu4e-cited-1-face ((,class (:foreground ,fg2))))
@@ -559,18 +621,23 @@
                `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
                `(org-agenda-done ((,class (:foreground ,bg4))))
                `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box nil :background ,bg3))))
-               `(org-block ((,class (:foreground ,fg3))))
-               `(org-code ((,class (:foreground ,fg2))))
+               `(org-block ((,class (:foreground ,fg1 :background ,bg2))))
+               `(org-code ((,class (:foreground ,base01))))
                `(org-date ((,class (:underline t :foreground ,var) )))
                `(org-document-info-keyword ((,class (:foreground ,func))))
-               `(org-done ((,class (:box nil :bold t :foreground ,bg4))))
+               `(org-done ((,class (:box nil :bold t :foreground ,green))))
+               `(org-headline-done ((,class (:foreground ,green))))
                `(org-ellipsis ((,class (:foreground ,builtin))))
                `(org-footnote  ((,class (:underline t :foreground ,fg4))))
                `(org-hide ((,class (:foreground ,fg4))))
-               `(org-level-1 ((,class (:bold t :foreground ,fg2 :height 1.1))))
-               `(org-level-2 ((,class (:bold nil :foreground ,fg3))))
-               `(org-level-3 ((,class (:bold t :foreground ,fg4))))
-               `(org-level-4 ((,class (:bold nil :foreground ,bg4))))
+               `(org-level-1 ((,class (:bold t :foreground ,blue :height 1.1))))
+               `(org-level-2 ((,class (:bold t :foreground ,orange))))
+               `(org-level-3 ((,class (:bold t :foreground ,cyan))))
+               `(org-level-4 ((,class (:bold t :foreground ,magenta))))
+               `(org-level-5 ((,class (:bold t :foreground ,yellow))))
+               `(org-level-6 ((,class (:bold t :foreground ,red))))
+               `(org-level-7 ((,class (:bold t :foreground ,green))))
+               `(org-level-8 ((,class (:bold t :foreground ,violet))))
                `(org-link ((,class (:underline t :foreground ,type ))))
                `(org-quote ((,class (:inherit org-block :slant italic))))
                `(org-scheduled ((,class (:foreground ,type))))
@@ -582,22 +649,78 @@
                `(org-verse ((,class (:inherit org-block :slant italic))))
                `(org-warning ((,class (:underline t :foreground ,warning))))
 
+               ;; powerline
+               `(powerline-active1 ((,class (:background ,base00 :foreground ,base03))))
+               `(powerline-active2 ((,class (:background ,base01 :foreground ,base03))))
+               `(powerline-inactive1 ((,class (:background ,base03 :foreground ,base1))))
+               `(powerline-inactive2 ((,class (:background ,base02 :foreground ,base1))))
+
+               ;; rainbow-blocks
+               `(rainbow-blocks-depth-1-face ((,class (:foreground ,cyan))))
+               `(rainbow-blocks-depth-2-face ((,class (:foreground ,yellow))))
+               `(rainbow-blocks-depth-3-face ((,class (:foreground ,blue))))
+               `(rainbow-blocks-depth-4-face ((,class (:foreground ,violet))))
+               `(rainbow-blocks-depth-5-face ((,class (:foreground ,green))))
+               `(rainbow-blocks-depth-6-face ((,class (:foreground ,yellow))))
+               `(rainbow-blocks-depth-7-face ((,class (:foreground ,blue))))
+               `(rainbow-blocks-depth-8-face ((,class (:foreground ,violet))))
+               `(rainbow-blocks-depth-9-face ((,class (:foreground ,green))))
+               `(rainbow-blocks-unmatched-face ((,class (:foreground ,red))))
+
+               ;; rainbow-delimiters
+               `(rainbow-delimiters-depth-1-face ((,class (:foreground ,cyan))))
+               `(rainbow-delimiters-depth-2-face ((,class (:foreground ,yellow))))
+               `(rainbow-delimiters-depth-3-face ((,class (:foreground ,blue))))
+               `(rainbow-delimiters-depth-4-face ((,class (:foreground ,violet))))
+               `(rainbow-delimiters-depth-5-face ((,class (:foreground ,green))))
+               `(rainbow-delimiters-depth-6-face ((,class (:foreground ,yellow))))
+               `(rainbow-delimiters-depth-7-face ((,class (:foreground ,blue))))
+               `(rainbow-delimiters-depth-8-face ((,class (:foreground ,violet))))
+               `(rainbow-delimiters-depth-9-face ((,class (:foreground ,green))))
+               `(rainbow-delimiters-depth-10-face ((,class (:foreground ,yellow))))
+               `(rainbow-delimiters-depth-11-face ((,class (:foreground ,blue))))
+               `(rainbow-delimiters-depth-12-face ((,class (:foreground ,violet))))
+               `(rainbow-delimiters-unmatched-face
+                 ((,class (:foreground ,base0 :background ,base03 :inverse-video t))))
+
                ;; rainbow delimiters
-               `(rainbow-delimiters-depth-1-face ((,class (:bold t :foreground ,fg1))))
-               `(rainbow-delimiters-depth-2-face ((,class (:bold t :foreground ,type))))
-               `(rainbow-delimiters-depth-3-face ((,class :foreground ,var)))
-               `(rainbow-delimiters-depth-4-face ((,class :foreground ,const)))
-               `(rainbow-delimiters-depth-5-face ((,class :foreground ,keyword)))
-               `(rainbow-delimiters-depth-6-face ((,class :foreground ,fg1)))
-               `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
-               `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
-               `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
+               ;; `(rainbow-delimiters-depth-1-face ((,class (:bold t :foreground ,fg1))))
+               ;; `(rainbow-delimiters-depth-2-face ((,class (:bold t :foreground ,type))))
+               ;; `(rainbow-delimiters-depth-3-face ((,class :foreground ,var)))
+               ;; `(rainbow-delimiters-depth-4-face ((,class :foreground ,const)))
+               ;; `(rainbow-delimiters-depth-5-face ((,class :foreground ,keyword)))
+               ;; `(rainbow-delimiters-depth-6-face ((,class :foreground ,fg1)))
+               ;; `(rainbow-delimiters-depth-7-face ((,class :foreground ,type)))
+               ;; `(rainbow-delimiters-depth-8-face ((,class :foreground ,var)))
+               ;; `(rainbow-delimiters-unmatched-face ((,class :foreground ,warning)))
 
                ;; undo-tree
                `(undo-tree-visualizer-current-face ((,class :foreground ,builtin)))
                `(undo-tree-visualizer-default-face ((,class :foreground ,fg2)))
                `(undo-tree-visualizer-register-face ((,class :foreground ,type)))
                `(undo-tree-visualizer-unmodified-face ((,class :foreground ,var)))
+
+               ;; speedbar
+               `(speedbar-button-face ((,class (:inherit ,'default
+                                                         :foreground ,base01))))
+               `(speedbar-directory-face ((,class (:inherit ,'default :foreground ,blue))))
+               `(speedbar-file-face ((,class (:inherit ,'default :foreground ,base0))))
+               `(speedbar-highlight-face ((,class (:inherit ,'default :background ,base02))))
+               `(speedbar-selected-face ((,class (:inherit ,'default
+                                                           :foreground ,yellow :underline t))))
+               `(speedbar-separator-face ((,class (:inherit ,'default
+                                                            :background ,blue :foreground ,base03
+                                                            :overline ,cyan))))
+               `(speedbar-tag-face ((,class (:inherit ,'default :foreground ,green))))
+
+               ;; spaceline
+               `(spaceline-python-venv ((,class (:foreground ,fg1))))
+               `(spaceline-flycheck-error  ((,class (:foreground ,err))))
+               `(spaceline-flycheck-info   ((,class (:foreground ,keyword))))
+               `(spaceline-flycheck-warning((,class (:foreground ,warning))))
+
+               ;; spacemacs
+               `(spacemacs-transient-state-title-face ((,class (:background nil :foreground ,fg1 :box nil :inherit bold))))
 
                ;; term
                `(term ((,class (:foreground ,fg1 :background ,bg1))))
