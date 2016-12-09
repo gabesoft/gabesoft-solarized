@@ -222,19 +222,19 @@
 
                ;; company
                `(company-echo-common ((,class (:foreground ,bg1 :background ,fg1))))
-               `(company-preview ((,class (:background ,bg1 :foreground ,blue))))
-               `(company-preview-common ((,class (:foreground ,bg2 :foreground ,fg1))))
-               `(company-preview-search ((,class (:foreground ,blue :background ,bg1))))
+               `(company-preview ((,class (:foreground ,blue :background ,bg1))))
+               `(company-preview-common ((,class (:foreground ,fg1 :background ,bg2 :underline nil))))
+               `(company-preview-search ((,class (:foreground ,blue :background ,bg1 :underline nil))))
                `(company-scrollbar-bg ((,class (:background ,bg1))))
                `(company-scrollbar-fg ((,class (:background ,bg2))))
-               `(company-template-field ((,class (:inherit region))))
+               `(company-template-field ((,class (:inherit region :underline nil))))
                `(company-tooltip ((,class (:foreground ,fg2 :background ,bg1 :bold t))))
-               `(company-tooltip-annotation ((,class (:foreground ,keyword))))
-               `(company-tooltip-common ((,class (:foreground ,blue))))
-               `(company-tooltip-common-selection ((,class (:foreground ,yellow))))
-               `(company-tooltip-mouse ((,class (:inherit highlight))))
-               `(company-tooltip-search ((,class (:inherit match))))
-               `(company-tooltip-selection ((,class (:background ,bg2 :foreground ,fg1))))
+               `(company-tooltip-annotation ((,class (:foreground ,magenta :underline nil))))
+               `(company-tooltip-common ((,class (:foreground ,blue :underline nil))))
+               `(company-tooltip-common-selection ((,class (:foreground ,yellow :underline nil))))
+               `(company-tooltip-mouse ((,class (:inherit highlight :underline nil))))
+               `(company-tooltip-search ((,class (:inherit match :underline nil))))
+               `(company-tooltip-selection ((,class (:foreground ,fg1 :background ,bg2 :underline nil))))
                `(company-tooltop-annotation ((,class (:foreground ,const))))
 
                ;; diff
@@ -398,8 +398,9 @@
                  ((,class (:inverse-video unspecified
                                           :overline ,bg2
                                           :underline ,bg2
-                                          :foreground ,base1
-                                          :background ,bg2
+                                          :foreground ,fg1
+                                          :background ,bg1
+                                          :bold t
                                           :box (:line-width 2 :color ,bg2 :style unspecified)))))
                `(mode-line
                  ((,class (:inverse-video unspecified
@@ -446,17 +447,16 @@
                `(helm-grep-lineno ((,class (:foreground ,type :background ,bg1 :inherit bold))))
                `(helm-grep-match ((,class (:foreground nil :background nil :inherit helm-match))))
                `(helm-grep-running ((,class (:foreground ,func :background ,bg1))))
-               `(helm-header ((,class (:foreground ,fg1 :background ,bg2 :underline nil :box nil))))
-               `(helm-header-line-left-margin ((,class (:foreground ,keyword :background ,nil))))
-               `(helm-match ((,class (:background ,bg2 :foreground ,orange))))
+               `(helm-header ((,class (:inherit header-line))))
+               `(helm-header-line-left-margin ((,class (:inherit header-line))))
+               `(helm-match ((,class (:background ,bg1 :foreground ,orange))))
                `(helm-match-item ((,class (:background ,bg2 :foreground ,yellow))))
                `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg1))))
-               `(helm-selection ((,class (:background ,bg2 :underline nil))))
-               `(helm-selection ((,class (:background ,bg2))))
-               `(helm-selection-line ((,class (:background ,bg2))))
+               `(helm-selection ((,class (:background ,bg2 :underline t))))
+               `(helm-selection-line ((,class (:background ,bg1 :underline t))))
                `(helm-separator ((,class (:foreground ,type :background ,bg1))))
                `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
-               `(helm-source-header ((,class (:foreground ,keyword :background ,bg1 :underline nil :weight bold))))
+               `(helm-source-header ((,class (:foreground ,yellow :background ,bg1 :underline nil :bold t :italic t))))
                `(helm-time-zone-current ((,class (:foreground ,builtin :background ,bg1))))
                `(helm-time-zone-home ((,class (:foreground ,type :background ,bg1))))
                `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg2))))
@@ -464,7 +464,7 @@
                ;; helm-swoop
                `(helm-swoop-target-line-block-face ((,class (:foreground ,fg1 :background ,bg2))))
                `(helm-swoop-target-line-face ((,class (:background ,bg2))))
-               `(helm-swoop-target-word-face ((,class (:background ,bg2 :foreground ,yellow))))
+               `(helm-swoop-target-word-face ((,class (:foreground ,yellow :background ,bg2))))
 
                ;; highlights
                `(hi-yellow ((,class (:foreground ,yellow :background ,bg2))))
