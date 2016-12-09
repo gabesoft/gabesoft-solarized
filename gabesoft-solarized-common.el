@@ -195,7 +195,7 @@
                `(font-lock-comment-delimiter-face ((,class (:foreground ,comment :background ,bg-base :slant ,'normal))))
                `(font-lock-comment-face ((,class (:foreground ,comment :background ,bg-base))))
                `(font-lock-constant-face ((,class (:foreground ,const :bold nil))))
-               `(font-lock-doc-face ((,class (:foreground ,doc :italic t :bold nil))))
+               `(font-lock-doc-face ((,class (:foreground ,doc :background ,bg-emph :italic nil :bold nil))))
                `(font-lock-function-name-face ((,class (:foreground ,func ))))
                `(font-lock-keyword-face ((,class (:bold ,class :foreground ,keyword))))
                `(font-lock-negation-char-face ((,class (:foreground ,const))))
