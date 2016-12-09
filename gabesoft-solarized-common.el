@@ -120,17 +120,18 @@
                (fg-rev-emph  (gs-get-color-for-variant variant :fg-rev-emph))
 
                (builtin  (gs-get-color-for-variant variant :cyan))
-               (keyword  (gs-get-color-for-variant variant :blue))
-               (const    (gs-get-color-for-variant variant :orange))
                (comment  (gs-get-color-for-variant variant :bg-rev-emph))
                (comment2 (gs-get-color-for-variant variant :bg-rev-base))
+               (const    (gs-get-color-for-variant variant :orange))
                (doc      (gs-get-color-for-variant variant :bg-rev-base))
+               (err      (gs-get-color-for-variant variant :red))
                (func     (gs-get-color-for-variant variant :violet))
+               (keyword  (gs-get-color-for-variant variant :blue))
+               (mat      (gs-get-color-for-variant variant :magenta))
                (str      (gs-get-color-for-variant variant :green))
+               (suc      (gs-get-color-for-variant variant :green))
                (type     (gs-get-color-for-variant variant :yellow))
                (var      (gs-get-color-for-variant variant :base1))
-               (suc      (gs-get-color-for-variant variant :green))
-               (err      (gs-get-color-for-variant variant :red))
                (war      (gs-get-color-for-variant variant :orange))
                (war2     (gs-get-color-for-variant variant :yellow))
 
@@ -156,7 +157,7 @@
                `(success ((,class (:foreground ,suc))))
 
                `(highlight ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
-               `(isearch ((,class (:bold t :foreground ,war :background ,bg-emph))))
+               `(isearch ((,class (:bold t :foreground ,mat :background ,bg-emph))))
                `(lazy-highlight ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
 
                '(button ((t (:underline t))))
@@ -170,14 +171,14 @@
                `(icompletep-determined ((,class :foreground ,builtin)))
                `(link ((,class (:foreground ,magenta :underline t :italic nil :bold t))))
                `(link-visited ((,class (:foreground ,comment :underline t))))
-               `(match ((,class (:background ,bg-emph :foreground ,fg-base :weight bold))))
+               `(match ((,class (:background ,bg-emph :foreground ,mat :weight bold))))
                `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
                `(page-break-lines ((,class (:foreground ,fg-emph))))
                `(region ((,class (:background ,bg-rev-base :foreground ,fg-rev-base))))
                `(secondary-selection ((,class (:background ,bg-emph))))
                `(secondary-selection ((,class (:background ,bg-rev-emph))))
                `(shadow ((,class (:foreground ,fg-emph :background ,bg-emph))))
-               `(show-paren-match-face ((,class (:background ,war))))
+               `(show-paren-match-face ((,class (:background ,mat))))
                `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
                `(tooltip ((,class (:background ,bg-base
                                                :foreground ,fg-base
@@ -481,7 +482,7 @@
                ;; helm-swoop
                `(helm-swoop-target-line-block-face ((,class (:foreground ,fg-base :background ,bg-emph))))
                `(helm-swoop-target-line-face ((,class (:background ,bg-emph))))
-               `(helm-swoop-target-word-face ((,class (:foreground ,yellow :background ,bg-emph))))
+               `(helm-swoop-target-word-face ((,class (:foreground ,mat :background ,bg-emph))))
 
                ;; highlights
                `(hi-yellow ((,class (:foreground ,yellow :background ,bg-emph))))
@@ -511,7 +512,7 @@
 
                ;; ido
                `(ido-first-match ((,class (:foreground ,keyword :bold t))))
-               `(ido-only-match ((,class (:foreground ,war))))
+               `(ido-only-match ((,class (:foreground ,mat))))
                `(ido-subdir ((,class (:foreground ,keyword))))
                `(ido-vertical-match-face ((,class (:foreground ,yellow :underline nil))))
 
@@ -703,7 +704,7 @@
 
                ;; smartparens
                `(sp-pair-overlay-face ((,class (:background ,bg-emph :foreground nil))))
-               `(sp-show-pair-match-face ((,class (:foreground ,magenta :inherit bold :underline t))))
+               `(sp-show-pair-match-face ((,class (:foreground ,mat :inherit bold :underline t))))
 
                ;; speedbar
                `(speedbar-button-face ((,class (:inherit ,'default
