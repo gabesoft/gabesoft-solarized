@@ -168,7 +168,7 @@
                `(hl-line ((,class (:background  ,bg-emph))))
                `(hl-line-face ((,class (:background  ,bg-emph))))
                `(icompletep-determined ((,class :foreground ,builtin)))
-               `(link ((,class (:foreground ,magenta :underline t :italic t :bold nil))))
+               `(link ((,class (:foreground ,magenta :underline t :italic nil :bold t))))
                `(link-visited ((,class (:foreground ,comment :underline t))))
                `(match ((,class (:background ,bg-emph :foreground ,fg-base :weight bold))))
                `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
