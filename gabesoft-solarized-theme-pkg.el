@@ -1,0 +1,1 @@
+(define-package "gabesoft-solarized-theme" "0.1" "An alternative version of solarized for emacs" 'nil :url "https://github.com/gabesoft/gabesoft-solarized-theme" :keywords '("color" "theme"))
