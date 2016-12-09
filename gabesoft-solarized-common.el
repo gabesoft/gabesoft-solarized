@@ -334,9 +334,9 @@
                                   (:underline (:style line :color ,err)))
                                  (,class (:foreground ,fg1 :background ,err :inherit bold :underline t))))
                `(flycheck-error-list-checker-name ((,class (:foreground ,keyword))))
-               `(flycheck-fringe-error ((,class (:foreground ,err :inherit bold))))
-               `(flycheck-fringe-info ((,class (:foreground ,keyword :inherit bold))))
-               `(flycheck-fringe-warning ((,class (:foreground ,war :inherit bold))))
+               `(flycheck-fringe-error ((,class (:foreground ,err :background ,bg1 :inherit bold))))
+               `(flycheck-fringe-info ((,class (:foreground ,keyword :background ,bg1 :inherit bold))))
+               `(flycheck-fringe-warning ((,class (:foreground ,war :background ,bg1 :inherit bold))))
                `(flycheck-info ((,(append '((supports :underline (:style line))) class)
                                  (:underline (:style line :color ,keyword)))
                                 (,class (:foreground ,fg1 :background ,keyword :inherit bold :underline t))))
@@ -392,6 +392,9 @@
                `(guide-key/highlight-command-face ((,class (:foreground ,fg1))))
                `(guide-key/key-face ((,class (:foreground ,keyword))))
                `(guide-key/prefix-command-face ((,class (:foreground ,keyword :inherit bold))))
+
+               ;; haskell
+               `(haskell-pragma-face ((,class (:foreground ,comment :bold t))))
 
                ;; header-line & mode-line
                `(header-line
@@ -541,7 +544,7 @@
                `(linum ((,class (:foreground ,fg1 :background ,bg1))))
 
                ;; linum-relative
-               `(linum-relative-current-face ((,class (:foreground ,yellow))))
+               `(linum-relative-current-face ((,class (:foreground ,yellow :bold t))))
 
                ;; magit
                `(magit-blame-culprit ((,class :background ,bg2 :foreground ,yellow)))
@@ -609,8 +612,8 @@
                `(org-agenda-date-weekend ((,class (:weight normal :foreground ,fg4))))
                `(org-agenda-done ((,class (:foreground ,bg4))))
                `(org-agenda-structure ((,class (:weight bold :foreground ,fg3 :box nil :background ,bg3))))
-               `(org-block ((,class (:foreground ,fg1 :background ,bg2))))
-               `(org-code ((,class (:foreground ,base01))))
+               `(org-block ((,class (:foreground ,fg1 :background ,bg1))))
+               `(org-code ((,class (:foreground ,comment :bold t))))
                `(org-date ((,class (:underline t :foreground ,var) )))
                `(org-document-info-keyword ((,class (:foreground ,func))))
                `(org-done ((,class (:box nil :bold t :foreground ,green))))
@@ -633,7 +636,7 @@
                `(org-sexp-date ((,class (:foreground ,fg4))))
                `(org-special-keyword ((,class (:foreground ,func))))
                `(org-todo ((,class (:box nil :foreground ,keyword :bold t))))
-               `(org-verbatim ((,class (:foreground ,fg4))))
+               `(org-verbatim ((,class (:foreground ,keyword :background ,bg1))))
                `(org-verse ((,class (:inherit org-block :slant italic))))
                `(org-warning ((,class (:underline t :foreground ,war))))
 
