@@ -119,19 +119,19 @@
                                (fg-rev-base  (gabesoft-solarized-get-color-for-variant variant :fg-rev-base))
                                (fg-rev-emph  (gabesoft-solarized-get-color-for-variant variant :fg-rev-emph))
 
-                               (builtin  (gabesoft-solarized-get-color-for-variant variant :cyan))
+                               (builtin  (gabesoft-solarized-get-color-for-variant variant :green))
                                (comment  (gabesoft-solarized-get-color-for-variant variant :bg-rev-emph))
-                               (comment2 (gabesoft-solarized-get-color-for-variant variant :bg-rev-base))
-                               (const    (gabesoft-solarized-get-color-for-variant variant :orange))
+                               (const    (gabesoft-solarized-get-color-for-variant variant :cyan))
                                (doc      (gabesoft-solarized-get-color-for-variant variant :bg-rev-base))
+                               (doc-bg   (gabesoft-solarized-get-color-for-variant variant :bg-emph))
                                (err      (gabesoft-solarized-get-color-for-variant variant :red))
-                               (func     (gabesoft-solarized-get-color-for-variant variant :violet))
-                               (keyword  (gabesoft-solarized-get-color-for-variant variant :blue))
+                               (func     (gabesoft-solarized-get-color-for-variant variant :blue))
+                               (keyword  (gabesoft-solarized-get-color-for-variant variant :green))
                                (mat      (gabesoft-solarized-get-color-for-variant variant :magenta))
-                               (str      (gabesoft-solarized-get-color-for-variant variant :green))
+                               (str      (gabesoft-solarized-get-color-for-variant variant :cyan))
                                (suc      (gabesoft-solarized-get-color-for-variant variant :green))
                                (type     (gabesoft-solarized-get-color-for-variant variant :yellow))
-                               (var      (gabesoft-solarized-get-color-for-variant variant :base1))
+                               (var      (gabesoft-solarized-get-color-for-variant variant :blue))
                                (war      (gabesoft-solarized-get-color-for-variant variant :orange))
                                (war2     (gabesoft-solarized-get-color-for-variant variant :yellow))
 
@@ -161,11 +161,11 @@
                                `(lazy-highlight ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
 
                                '(button ((t (:underline t))))
-                               `(cursor ((,class (:background ,bg-rev-base))))
+                               `(cursor ((,class (:background ,bg-rev-base :background ,bg-base :inverse-video t))))
                                `(custom-button ((,class :background ,bg-emph :foreground ,fg-base :box nil)))
                                `(escape-glyph ((,class (:foreground ,violet))))
                                `(ffap ((,class (:foreground ,fg-rev-emph))))
-                               `(fringe ((,class (:background ,bg-base :foreground ,yellow))))
+                               `(fringe ((,class (:background ,bg-base :foreground ,comment))))
                                `(hl-line ((,class (:background  ,bg-emph))))
                                `(hl-line-face ((,class (:background  ,bg-emph))))
                                `(icompletep-determined ((,class :foreground ,builtin)))
@@ -194,18 +194,18 @@
 
                                `(font-lock-builtin-face ((,class (:foreground ,builtin :bold nil :italic nil))))
                                `(font-lock-comment-delimiter-face ((,class (:foreground ,comment :background ,bg-base :slant ,'normal))))
-                               `(font-lock-comment-face ((,class (:foreground ,comment :background ,bg-base))))
-                               `(font-lock-constant-face ((,class (:foreground ,const :bold nil))))
-                               `(font-lock-doc-face ((,class (:foreground ,doc :background ,bg-emph :italic nil :bold nil))))
-                               `(font-lock-function-name-face ((,class (:foreground ,func ))))
-                               `(font-lock-keyword-face ((,class (:bold ,class :foreground ,keyword))))
+                               `(font-lock-comment-face ((,class (:foreground ,comment :background ,bg-base :italic nil :bold nil))))
+                               `(font-lock-constant-face ((,class (:foreground ,const :bold t))))
+                               `(font-lock-doc-face ((,class (:foreground ,doc :background ,doc-bg :italic nil :bold nil))))
+                               `(font-lock-function-name-face ((,class (:foreground ,func))))
+                               `(font-lock-keyword-face ((,class (:foreground ,keyword :bold t))))
                                `(font-lock-negation-char-face ((,class (:foreground ,const))))
                                `(font-lock-preprocessor-face ((,class (:foreground ,func))))
                                `(font-lock-reference-face ((,class (:foreground ,const))))
                                `(font-lock-string-face ((,class (:foreground ,str))))
-                               `(font-lock-type-face ((,class (:foreground ,type ))))
-                               `(font-lock-variable-name-face ((,class (:foreground ,var))))
-                               `(font-lock-warning-face ((,class (:foreground ,war :background ,bg-emph))))
+                               `(font-lock-type-face ((,class (:foreground ,type))))
+                               `(font-lock-variable-name-face ((,class (:foreground ,var :bold t))))
+                               `(font-lock-warning-face ((,class (:foreground ,err :background ,bg-base :bold t))))
 
                                ;;ahs
                                `(ahs-face ((,class (:background ,bg-emph :foreground ,yellow :bold t))))
@@ -251,8 +251,8 @@
                                `(company-tooltop-annotation ((,class (:foreground ,const))))
 
                                ;; diff
-                               `(diff-added             ((,class :background nil :foreground ,green)))
-                               `(diff-changed           ((,class :background nil :foreground ,keyword)))
+                               `(diff-added             ((,class :foreground ,green :inverse-video t)))
+                               `(diff-changed           ((,class :foreground ,yellow :inverse-video t)))
                                `(diff-header            ((,class :background ,bg-emph :foreground ,func)))
                                `(diff-indicator-added   ((,class :background nil :foreground ,green)))
                                `(diff-indicator-changed ((,class :background nil :foreground ,keyword)))
@@ -260,7 +260,7 @@
                                `(diff-refine-added      ((,class :background ,green :foreground ,bg-rev-emph)))
                                `(diff-refine-changed    ((,class :background ,keyword :foreground ,bg-rev-emph)))
                                `(diff-refine-removed    ((,class :background ,red :foreground ,bg-rev-emph)))
-                               `(diff-removed           ((,class :background nil :foreground ,red)))
+                               `(diff-removed           ((,class :foreground ,red :inverse-video t)))
 
                                ;; diff-hl
                                `(diff-hl-change ((,class :background ,bg-emph :foreground ,blue)))
@@ -408,7 +408,7 @@
 
                                ;; haskell
                                `(haskell-pragma-face ((,class (:foreground ,comment :bold t))))
-                               `(haskell-operator-face ((,class (:foreground ,fg-emph :bold nil))))
+                               `(haskell-operator-face ((,class (:foreground ,blue :bold nil))))
 
 
                                ;; header-line & mode-line
@@ -538,7 +538,9 @@
                                `(js2-function-param ((,class (:foreground ,const))))
                                `(js2-jsdoc-html-tag-delimiter ((,class (:foreground ,str))))
                                `(js2-jsdoc-html-tag-name ((,class (:foreground ,var))))
-                               `(js2-jsdoc-value ((,class (:foreground ,str))))
+                               `(js2-jsdoc-value ((,class (:background ,doc-bg))))
+                               `(js2-jsdoc-tag ((,class (:background ,doc-bg))))
+                               `(js2-jsdoc-type ((,class (:background ,doc-bg))))
                                `(js2-private-function-call ((,class (:foreground ,const))))
                                `(js2-private-member ((,class (:foreground ,fg-rev-base))))
                                `(js3-error-face ((,class (:underline ,war))))
@@ -658,8 +660,8 @@
                                ;; powerline
                                `(powerline-active1 ((,class (:foreground ,fg-rev-base :background ,bg-rev-base))))
                                `(powerline-active2 ((,class (:foreground ,fg-rev-emph :background ,bg-rev-emph))))
-                               `(powerline-inactive1 ((,class (:foreground ,yellow :background ,bg-base))))
-                               `(powerline-inactive2 ((,class (:foreground ,yellow :background ,bg-emph))))
+                               `(powerline-inactive1 ((,class (:foreground ,cyan :background ,bg-base))))
+                               `(powerline-inactive2 ((,class (:foreground ,cyan :background ,bg-emph))))
 
                                ;; rainbow-blocks
                                `(rainbow-blocks-depth-1-face ((,class (:foreground ,cyan))))
