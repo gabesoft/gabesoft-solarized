@@ -184,9 +184,8 @@ The color values are as follows (gui . (256  . 8))")
                                `(match ((,class (:background ,bg-emph :foreground ,mat :weight bold))))
                                `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
                                `(page-break-lines ((,class (:foreground ,fg-emph))))
-                               `(region ((,class (:background ,bg-rev-base :foreground ,fg-rev-base))))
-                               `(secondary-selection ((,class (:background ,bg-emph))))
-                               `(secondary-selection ((,class (:background ,bg-rev-emph))))
+                               `(region ((,class (:foreground ,bg-base :background ,fg-base))))
+                               `(secondary-selection ((,class (:foreground ,bg-rev-emph :background ,fg-rev-emph))))
                                `(shadow ((,class (:foreground ,fg-emph :background ,bg-emph))))
                                `(show-paren-match-face ((,class (:background ,mat))))
                                `(slime-repl-inputed-output-face ((,class (:foreground ,type))))
@@ -219,7 +218,7 @@ The color values are as follows (gui . (256  . 8))")
 
                                ;;ahs
                                `(ahs-face ((,class (:background ,bg-emph :foreground ,yellow :bold t))))
-                               `(ahs-plugin-whole-buffer-face ((,class (:background ,bg-rev-base :foreground ,fg-rev-base :bold nil))))
+                               `(ahs-plugin-whole-buffer-face ((,class (:background ,fg-base :foreground ,bg-base :bold t))))
 
                                ;; anzu
                                `(anzu-mode-line ((,class (:foreground ,yellow :inherit bold))))
