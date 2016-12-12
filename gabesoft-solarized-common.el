@@ -63,7 +63,7 @@
     (:cyan    . ("#2aa198" . ("#00afaf" . "cyan")))
     (:green   . ("#859900" . ("#5f8700" . "green"))))
   "Solarized color values for gui and terminal.
-The color values are as follows TRUE-COLOR XTERM  g")
+The color values are as follows (gui . (256  . 8))")
 
 (defun gabesoft-solarized-get-color-value (name)
   "Get the value for the color with NAME."
