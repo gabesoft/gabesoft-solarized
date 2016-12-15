@@ -467,7 +467,7 @@
     `(helm-grep-running ((,class (:foreground ,func :background ,bg-base))))
     `(helm-header ((,class (:inherit header-line))))
     `(helm-header-line-left-margin ((,class (:inherit header-line))))
-    `(helm-match ((,class (:background ,bg-base :foreground ,orange))))
+    `(helm-match ((,class (:background ,bg-base :foreground ,mat))))
     `(helm-match-item ((,class (:background ,bg-emph :foreground ,yellow))))
     `(helm-moccur-buffer ((,class (:foreground ,func :background ,bg-base))))
     `(helm-selection ((,class (:background ,bg-emph :underline t))))
