@@ -474,7 +474,7 @@
     `(helm-selection-line ((,class (:background ,bg-base :underline t))))
     `(helm-separator ((,class (:foreground ,type :background ,bg-base))))
     `(helm-source-go-package-godoc-description ((,class (:foreground ,str))))
-    `(helm-source-header ((,class (:foreground ,yellow :background ,bg-base :underline nil :bold t :italic t))))
+    `(helm-source-header ((,class (:foreground ,cyan :background ,bg-base :underline nil :bold t :italic t))))
     `(helm-time-zone-current ((,class (:foreground ,builtin :background ,bg-base))))
     `(helm-time-zone-home ((,class (:foreground ,type :background ,bg-base))))
     `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg-emph))))
