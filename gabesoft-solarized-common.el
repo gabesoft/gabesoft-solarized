@@ -561,7 +561,7 @@
     `(linum ((,class (:foreground ,fg-base :background ,bg-base))))
 
     ;; linum-relative
-    `(linum-relative-current-face ((,class (:foreground ,yellow :bold t))))
+    `(linum-relative-current-face ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
 
     ;; magit
     `(magit-blame-culprit ((,class :background ,bg-emph :foreground ,yellow)))

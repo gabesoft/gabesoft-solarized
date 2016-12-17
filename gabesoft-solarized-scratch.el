@@ -3,9 +3,12 @@
 
 (defun gabesoft-solarized-enable-theme (theme)
   "Enable all variable and face settings defined by THEME."
-  (enable-theme theme)
-  (spaceline-compile)
-  (set-font-camingo-small))
+  (progn
+    (when (listp custom-enabled-themes)
+      (mapcar 'disable-theme custom-enabled-themes))
+    (enable-theme theme)
+    (spaceline-compile)
+    (set-font-camingo-small)))
 
 (defun gabesoft-solarized-enable-dark ()
   "Enable the `gabesoft-solarized-dark' theme."
