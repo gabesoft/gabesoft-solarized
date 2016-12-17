@@ -329,6 +329,7 @@
     ;; evil
     `(evil-ex-substitute-matches ((,class (:background ,bg-base :foreground ,red))))
     `(evil-ex-substitute-replacement ((,class (:background ,bg-base :foreground ,green))))
+    `(evil-search-highlight-persist-highlight-face ((,class (:inherit bold))))
 
     ;; eshell
     `(eshell-ls-archive ((,class (:foreground ,red :inherit bold))))
@@ -493,6 +494,9 @@
     ;; highlight-indentation
     `(highlight-indentation-face ((,class (:background ,bg-emph))))
 
+    ;; highlight-numbers
+    `(highlight-numbers-number ((,class (:foreground ,violet :background ,bg-base :bold nil))))
+
     ;; highlight-symbol
     `(highlight-symbol-face ((,class (:background ,bg-emph))))
 
@@ -563,7 +567,7 @@
     `(linum ((,class (:foreground ,fg-base :background ,bg-base))))
 
     ;; linum-relative
-    `(linum-relative-current-face ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
+    `(linum-relative-current-face ((,class (:foreground ,yellow :background ,bg-base :bold t))))
 
     ;; magit
     `(magit-blame-culprit ((,class :background ,bg-emph :foreground ,yellow)))
