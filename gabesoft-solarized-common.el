@@ -172,7 +172,7 @@
     `(icompletep-determined ((,class :foreground ,builtin)))
     `(link ((,class (:foreground unspecified :underline t :italic t :bold nil))))
     `(link-visited ((,class (:foreground unspecified :underline t :italic nil :bold nil))))
-    `(match ((,class (:background ,bg-emph :foreground ,mat :weight bold))))
+    `(match ((,class (:background ,bg-emph :foreground ,mat :weight bold :underline nil))))
     `(minibuffer-prompt ((,class (:bold t :foreground ,keyword))))
     `(page-break-lines ((,class (:foreground ,fg-emph))))
     `(region ((,class (:foreground ,bg-base :background ,fg-base))))
@@ -710,20 +710,20 @@
 
     ;; smartparens
     `(sp-pair-overlay-face ((,class (:background ,bg-emph :foreground nil))))
-    `(sp-show-pair-match-face ((,class (:foreground ,mat :inherit bold :underline t))))
+    `(sp-show-pair-match-face ((,class (:inherit match))))
 
     ;; speedbar
-    `(speedbar-button-face ((,class (:inherit ,'default
+    `(speedbar-button-face ((,class (:inherit default
                                               :foreground ,fg-emph))))
-    `(speedbar-directory-face ((,class (:inherit ,'default :foreground ,blue))))
-    `(speedbar-file-face ((,class (:inherit ,'default :foreground ,fg-base))))
-    `(speedbar-highlight-face ((,class (:inherit ,'default :background ,bg-emph))))
-    `(speedbar-selected-face ((,class (:inherit ,'default
+    `(speedbar-directory-face ((,class (:inherit default :foreground ,blue))))
+    `(speedbar-file-face ((,class (:inherit default :foreground ,fg-base))))
+    `(speedbar-highlight-face ((,class (:inherit default :background ,bg-emph))))
+    `(speedbar-selected-face ((,class (:inherit default
                                                 :foreground ,yellow :underline t))))
-    `(speedbar-separator-face ((,class (:inherit ,'default
+    `(speedbar-separator-face ((,class (:inherit default
                                                  :background ,blue :foreground ,bg-base
                                                  :overline ,cyan))))
-    `(speedbar-tag-face ((,class (:inherit ,'default :foreground ,green))))
+    `(speedbar-tag-face ((,class (:inherit default :foreground ,green))))
 
     ;; spaceline
     `(spaceline-python-venv ((,class (:foreground ,fg-base))))
@@ -746,18 +746,18 @@
     `(term-color-yellow ((,class (:foreground ,var :background ,var))))
 
     ;; web-mode
-    `(web-mode-builtin-face ((,class (:inherit ,font-lock-builtin-face))))
-    `(web-mode-comment-face ((,class (:inherit ,font-lock-comment-face))))
-    `(web-mode-constant-face ((,class (:inherit ,font-lock-constant-face))))
-    `(web-mode-doctype-face ((,class (:inherit ,font-lock-comment-face))))
-    `(web-mode-function-name-face ((,class (:inherit ,font-lock-function-name-face))))
+    `(web-mode-builtin-face ((,class (:inherit font-lock-builtin-face))))
+    `(web-mode-comment-face ((,class (:inherit font-lock-comment-face))))
+    `(web-mode-constant-face ((,class (:inherit font-lock-constant-face))))
+    `(web-mode-doctype-face ((,class (:inherit font-lock-comment-face))))
+    `(web-mode-function-name-face ((,class (:inherit font-lock-function-name-face))))
     `(web-mode-html-attr-name-face ((,class (:foreground ,func))))
     `(web-mode-html-attr-value-face ((,class (:foreground ,keyword))))
     `(web-mode-html-tag-face ((,class (:foreground ,builtin))))
     `(web-mode-keyword-face ((,class (:foreground ,keyword))))
     `(web-mode-string-face ((,class (:foreground ,str))))
-    `(web-mode-type-face ((,class (:inherit ,font-lock-type-face))))
-    `(web-mode-warning-face ((,class (:inherit ,font-lock-warning-face))))
+    `(web-mode-type-face ((,class (:inherit font-lock-type-face))))
+    `(web-mode-warning-face ((,class (:inherit font-lock-warning-face))))
 
     )
 
