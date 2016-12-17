@@ -658,6 +658,7 @@
     `(org-scheduled-today ((,class (:foreground ,func :weight bold :height 1.2))))
     `(org-sexp-date ((,class (:foreground ,fg-rev-emph))))
     `(org-special-keyword ((,class (:foreground ,func))))
+    `(org-table ((,class (:inherit default))))
     `(org-todo ((,class (:box nil :foreground ,orange :bold t))))
     `(org-verbatim ((,class (:foreground ,keyword :background ,bg-emph))))
     `(org-verse ((,class (:inherit org-block :slant italic))))
