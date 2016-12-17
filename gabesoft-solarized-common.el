@@ -479,6 +479,7 @@
     `(helm-time-zone-current ((,class (:foreground ,builtin :background ,bg-base))))
     `(helm-time-zone-home ((,class (:foreground ,type :background ,bg-base))))
     `(helm-visible-mark ((,class (:foreground ,keyword :background ,bg-emph))))
+    `(helm-M-x-key ((,class (:foreground ,blue :background ,bg-base :bold t))))
 
     ;; helm-swoop
     `(helm-swoop-target-line-block-face ((,class (:foreground ,fg-base :background ,bg-emph))))
