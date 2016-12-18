@@ -136,6 +136,14 @@
     (war      (gabesoft-solarized-get-color-for-variant variant :orange))
     (war2     (gabesoft-solarized-get-color-for-variant variant :yellow))
 
+    (emacs-state (gabesoft-solarized-get-color-for-variant variant :magenta))
+    (insert-state (gabesoft-solarized-get-color-for-variant variant :green))
+    (lisp-state (gabesoft-solarized-get-color-for-variant variant :violet))
+    (motion-state (gabesoft-solarized-get-color-for-variant variant :cyan))
+    (normal-state (gabesoft-solarized-get-color-for-variant variant :blue))
+    (replace-state (gabesoft-solarized-get-color-for-variant variant :red))
+    (visual-state (gabesoft-solarized-get-color-for-variant variant :yellow))
+
     (blue    (gabesoft-solarized-get-color-for-variant variant :blue))
     (cyan    (gabesoft-solarized-get-color-for-variant variant :cyan))
     (green   (gabesoft-solarized-get-color-for-variant variant :green))
@@ -734,12 +742,25 @@
 
     ;; spaceline
     `(spaceline-python-venv ((,class (:foreground ,fg-base))))
-    `(spaceline-flycheck-error  ((,class (:foreground ,err))))
-    `(spaceline-flycheck-info   ((,class (:foreground ,keyword))))
-    `(spaceline-flycheck-warning((,class (:foreground ,war))))
+    `(spaceline-flycheck-error ((,class (:foreground ,err))))
+    `(spaceline-flycheck-info ((,class (:foreground ,keyword))))
+    `(spaceline-flycheck-warning ((,class (:foreground ,war))))
+    `(spaceline-evil-emacs ((,class (:foreground ,fg-rev-emph :background ,emacs-state))))
+    `(spaceline-evil-insert ((,class (:foreground ,fg-rev-emph :background ,insert-state))))
+    `(spaceline-evil-motion ((,class (:foreground ,fg-rev-emph :background ,motion-state))))
+    `(spaceline-evil-normal ((,class (:foreground ,fg-rev-emph :background ,normal-state))))
+    `(spaceline-evil-replace ((,class (:foreground ,fg-rev-emph :background ,replace-state))))
+    `(spaceline-evil-visual ((,class (:foreground ,fg-rev-emph :background ,visual-state))))
 
     ;; spacemacs
-    `(spacemacs-transient-state-title-face ((,class (:background nil :foreground ,fg-base :box nil :inherit bold))))
+    `(spacemacs-emacs-face ((,class (:foreground ,fg-rev-emph :background ,emacs-state))))
+    `(spacemacs-insert-face ((,class (:foreground ,fg-rev-emph :background ,insert-state))))
+    `(spacemacs-lisp-face ((,class (:foreground ,fg-rev-emph :background ,lisp-state))))
+    `(spacemacs-motion-face ((,class (:foreground ,fg-rev-emph :background ,motion-state))))
+    `(spacemacs-normal-face ((,class (:foreground ,fg-rev-emph :background ,normal-state))))
+    `(spacemacs-replace-face ((,class (:foreground ,fg-rev-emph :background ,replace-state))))
+    `(spacemacs-transient-state-title-face ((,class (:foreground ,cyan :background ,bg-base :bold t :italic t))))
+    `(spacemacs-visual-face ((,class (:foreground ,fg-rev-emph :background ,visual-state))))
 
     ;; term
     `(term ((,class (:foreground ,fg-base :background ,bg-base))))
