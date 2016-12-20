@@ -181,7 +181,7 @@
     `(link                           ((,class (:foreground unspecified :underline t :italic t :bold nil))))
     `(link-visited                   ((,class (:foreground unspecified :underline t :italic nil :bold nil))))
     `(match                          ((,class (:background ,bg-emph :foreground ,mat :weight bold :underline nil))))
-    `(mouse                          ((,class (:foreground ,red :background ,red))))
+    `(mouse                          ((,class (:foreground ,yellow :background ,yellow))))
     `(minibuffer-prompt              ((,class (:bold t :foreground ,keyword))))
     `(page-break-lines               ((,class (:foreground ,fg-emph))))
     `(region                         ((,class (:foreground ,bg-base :background ,fg-base))))
