@@ -181,7 +181,7 @@
     `(link                           ((,class (:foreground unspecified :underline t :italic t :bold nil))))
     `(link-visited                   ((,class (:foreground unspecified :underline t :italic nil :bold nil))))
     `(match                          ((,class (:background ,bg-emph :foreground ,mat :weight bold :underline nil))))
-    `(mouse                          ((,class (:foreground ,yellow :background ,yellow))))
+    `(mouse                          ((,class (:background ,yellow))))
     `(minibuffer-prompt              ((,class (:bold t :foreground ,keyword))))
     `(page-break-lines               ((,class (:foreground ,fg-emph))))
     `(region                         ((,class (:foreground ,bg-base :background ,fg-base))))
@@ -508,6 +508,9 @@
     `(highlight-indentation-face ((,class (:background ,bg-emph))))
     `(highlight-numbers-number   ((,class (:foreground ,violet :background ,bg-base :bold nil))))
     `(highlight-symbol-face      ((,class (:background ,bg-emph))))
+
+    ;; highlight-indent-guides
+    `(highlight-indent-guides-character-face ((,class (:foreground ,bg-emph :background ,bg-base))))
 
     ;; hydra
     `(hydra-face-blue ((,class (:foreground ,blue))))

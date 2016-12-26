@@ -7,6 +7,7 @@
     (when (listp custom-enabled-themes)
       (mapcar 'disable-theme custom-enabled-themes))
     (enable-theme theme)
+    (set-mouse-color "#b58900")
     (spaceline-compile)
     (set-font-camingo-small)))
 
