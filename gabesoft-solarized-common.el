@@ -782,10 +782,16 @@
     `(term-color-yellow  ((,class (:foreground ,var :background ,var))))
 
     ;; whitespace
-    `(whitespace-space    ((,class (:foreground ,comment :background ,bg-base))))
-    `(whitespace-line     ((,class (:foreground ,doc :background ,bg-emph))))
-    `(whitespace-empty    ((,class (:foreground ,bg-base :background ,yellow))))
-    `(whitespace-trailing ((,class (:foreground ,bg-base :background ,red))))
+    `(whitespace-empty            ((,class (:foreground ,bg-base :background ,yellow))))
+    `(whitespace-hspace           ((,class (:foreground ,comment :background unspecified :inverse-video unspecified))))
+    `(whitespace-indentation      ((,class (:foreground ,yellow :background unspecified :inverse-video unspecified))))
+    `(whitespace-line             ((,class (:foreground ,red :background unspecified :inverse-video unspecified))))
+    `(whitespace-newline          ((,class (:foreground ,comment :background unspecified))))
+    `(whitespace-space            ((,class (:foreground ,comment :background unspecified :inverse-video unspecified))))
+    `(whitespace-space-after-tab  ((,class (:foreground ,orange :background ,bg-emph))))
+    `(whitespace-space-before-tab ((,class (:foreground ,green :background ,bg-emph))))
+    `(whitespace-tab              ((,class (:foreground ,blue :background ,bg-emph))))
+    `(whitespace-trailing         ((,class (:foreground ,bg-base :background ,red))))
 
     ;; web-mode
     `(web-mode-builtin-face         ((,class (:inherit font-lock-builtin-face))))
