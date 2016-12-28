@@ -787,7 +787,7 @@
     `(whitespace-indentation      ((,class (:foreground ,yellow :background unspecified :inverse-video unspecified))))
     `(whitespace-line             ((,class (:foreground ,red :background unspecified :inverse-video unspecified))))
     `(whitespace-newline          ((,class (:foreground ,comment :background unspecified))))
-    `(whitespace-space            ((,class (:foreground ,green :background unspecified :inverse-video unspecified))))
+    `(whitespace-space            ((,class (:foreground ,comment :background unspecified :inverse-video unspecified))))
     `(whitespace-space-after-tab  ((,class (:foreground ,orange :background ,bg-emph))))
     `(whitespace-space-before-tab ((,class (:foreground ,green :background ,bg-emph))))
     `(whitespace-tab              ((,class (:foreground ,blue :background ,bg-emph))))
