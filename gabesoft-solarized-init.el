@@ -20,3 +20,5 @@
   "Enable the `gabesoft-solarized-light' theme."
   (interactive)
   (gabesoft-solarized-enable-theme 'gabesoft-solarized-light))
+
+(provide 'gabesoft-solarized-init)
