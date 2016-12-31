@@ -8,8 +8,8 @@
       '((gabesoft-solarized-theme :location local)))
 
 (setq gabesoft-solarized-theme-files '("gabesoft-solarized-common.el"
-                                       "gabesoft-solarized-dark-theme.el"
                                        "gabesoft-solarized-light-theme.el"
+                                       "gabesoft-solarized-dark-theme.el"
                                        "gabesoft-solarized-init.el"))
 
 (dolist (file gabesoft-solarized-theme-files)
