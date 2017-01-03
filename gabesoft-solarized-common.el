@@ -204,7 +204,7 @@
     `(eval-sexp-fu-flash-error ((,class (:background ,err :foreground ,bg-base))))
 
     `(font-lock-builtin-face           ((,class (:foreground ,builtin :bold nil :italic nil))))
-    `(font-lock-comment-delimiter-face ((,class (:foreground ,comment :background ,bg-base :slant ,'normal))))
+    `(font-lock-comment-delimiter-face ((,class (:foreground ,comment :background ,bg-base :italic nil))))
     `(font-lock-comment-face           ((,class (:foreground ,comment :background ,bg-base :italic nil :bold nil))))
     `(font-lock-constant-face          ((,class (:foreground ,const :bold t))))
     `(font-lock-doc-face               ((,class (:foreground ,doc :background ,doc-bg :italic nil :bold nil))))
@@ -218,7 +218,7 @@
     `(font-lock-variable-name-face     ((,class (:foreground ,var :bold t))))
     `(font-lock-warning-face           ((,class (:foreground ,err :background ,bg-base :bold t))))
 
-    ;;ahs
+    ;; ahs
     `(ahs-face ((,class (:background ,bg-emph :foreground ,yellow :bold t))))
     `(ahs-plugin-whole-buffer-face ((,class (:background ,fg-base :foreground ,bg-base :bold t))))
 
