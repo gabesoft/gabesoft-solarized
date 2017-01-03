@@ -724,6 +724,9 @@
     `(undo-tree-visualizer-register-face   ((,class :foreground ,type)))
     `(undo-tree-visualizer-unmodified-face ((,class :foreground ,var)))
 
+    ;; sh
+    `(sh-quoted-exec ((,class (:foreground ,orange))))
+
     ;; shm
     `(shm-current-face ((,class (:background ,green))))
     `(shm-quarantine-face ((,class (:background ,red))))
