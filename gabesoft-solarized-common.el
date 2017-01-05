@@ -339,7 +339,7 @@
     ;; evil
     `(evil-ex-substitute-matches                   ((,class (:background ,bg-base :foreground ,red))))
     `(evil-ex-substitute-replacement               ((,class (:background ,bg-base :foreground ,green))))
-    `(evil-search-highlight-persist-highlight-face ((,class (:inherit bold))))
+    `(evil-search-highlight-persist-highlight-face ((,class (:inherit bold :italic t :underline t))))
     `(evil-snipe-first-match-face                  ((,class (:inherit mat))))
     `(evil-snipe-matches-face                      ((,class (:inherit highlight))))
 
