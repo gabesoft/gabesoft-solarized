@@ -339,10 +339,9 @@
     ;; evil
     `(evil-ex-substitute-matches                   ((,class (:background ,bg-base :foreground ,red))))
     `(evil-ex-substitute-replacement               ((,class (:background ,bg-base :foreground ,green))))
-    `(evil-search-highlight-persist-highlight-face ((,class (:inherit bold :italic t :underline t))))
+    `(evil-search-highlight-persist-highlight-face ((,class (:background ,bg-emph))))
     `(evil-snipe-first-match-face                  ((,class (:inherit mat))))
     `(evil-snipe-matches-face                      ((,class (:inherit highlight))))
-
 
     ;; eshell
     `(eshell-ls-archive ((,class (:foreground ,red :inherit bold))))
