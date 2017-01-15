@@ -121,6 +121,7 @@
     (fg-rev-emph  (gabesoft-solarized-get-color-for-variant variant :fg-rev-emph))
 
     (builtin  (gabesoft-solarized-get-color-for-variant variant :green))
+    (cursor   (gabesoft-solarized-get-color-for-variant variant :blue))
     (comment  (gabesoft-solarized-get-color-for-variant variant :bg-rev-emph))
     (const    (gabesoft-solarized-get-color-for-variant variant :cyan))
     (doc      (gabesoft-solarized-get-color-for-variant variant :bg-rev-base))
@@ -170,7 +171,7 @@
     `(lazy-highlight ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
 
     '(button                         ((t (:underline t))))
-    `(cursor                         ((,class (:background ,bg-rev-base :background ,bg-base :inverse-video t))))
+    `(cursor                         ((,class (:background ,cursor))))
     `(custom-button                  ((,class :background ,bg-emph :foreground ,fg-base :box nil)))
     `(escape-glyph                   ((,class (:foreground ,violet))))
     `(ffap                           ((,class (:foreground ,fg-rev-emph))))
