@@ -423,7 +423,7 @@
 
     ;; haskell
     `(haskell-pragma-face   ((,class (:foreground ,comment :bold t))))
-    `(haskell-operator-face ((,class (:foreground ,violet :bold nil))))
+    `(haskell-operator-face ((,class (:foreground ,orange :bold nil))))
 
 
     ;; header-line & mode-line
