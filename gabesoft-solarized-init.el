@@ -9,7 +9,7 @@
     (enable-theme theme)
     (set-mouse-color "#b58900")
     (spaceline-compile)
-    (set-font-camingo-small)))
+    (run-hooks 'spacemacs-post-theme-change-hook)))
 
 (defun gabesoft-solarized-enable-dark ()
   "Enable the `gabesoft-solarized-dark' theme."
