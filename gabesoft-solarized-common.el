@@ -338,9 +338,9 @@
     `(erc-timestamp-face ((,class (:foreground ,keyword))))
 
     ;; evil
-    `(evil-ex-substitute-matches                   ((,class (:background ,bg-base :foreground ,red))))
-    `(evil-ex-substitute-replacement               ((,class (:background ,bg-base :foreground ,green))))
-    `(evil-search-highlight-persist-highlight-face ((,class (:background ,bg-emph))))
+    `(evil-ex-substitute-matches                   ((,class (:foreground ,red :background ,bg-base))))
+    `(evil-ex-substitute-replacement               ((,class (:foreground ,green :background ,bg-base))))
+    `(evil-search-highlight-persist-highlight-face ((,class (:foreground unspecified :background ,bg-emph))))
     `(evil-snipe-first-match-face                  ((,class (:inherit mat))))
     `(evil-snipe-matches-face                      ((,class (:inherit highlight))))
 
