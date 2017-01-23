@@ -168,7 +168,7 @@
 
     `(highlight      ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
     `(isearch        ((,class (:bold t :foreground ,mat :background ,bg-emph))))
-    `(lazy-highlight ((,class (:foreground ,yellow :background ,bg-emph :bold t))))
+    `(lazy-highlight ((,class (:foreground unspecified :background ,bg-emph :bold t))))
 
     '(button                         ((t (:underline t))))
     `(cursor                         ((,class (:background ,cursor))))
