@@ -500,6 +500,9 @@
     `(helm-swoop-target-line-face       ((,class (:background ,bg-emph))))
     `(helm-swoop-target-word-face       ((,class (:foreground ,mat :background ,bg-emph))))
 
+    ;; hl-todo
+    `(hl-todo  ((,class (:foreground ,yellow :background ,bg-emph :bold nil))))
+
     ;; highlights
     `(hi-yellow ((,class (:foreground ,yellow :background ,bg-emph))))
     `(hi-green  ((,class (:foreground ,green :background ,bg-emph))))
