@@ -379,7 +379,7 @@
        (,class (:foreground ,yellow :weight bold :underline t))))
     `(flyspell-incorrect
       ((,(append '((supports :underline (:style line))) class)
-        (:underline (:style line :color ,red) :inherit unspecified))
+        (:underline (:style line :color ,orange) :inherit unspecified))
        (,class (:foreground ,red :weight bold :underline t))))
 
     ;; jabber
