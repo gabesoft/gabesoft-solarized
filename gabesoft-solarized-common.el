@@ -642,6 +642,8 @@
     `(markdown-header-face-4 ((,class (:bold nil :foreground ,green :background ,bg-base))))
     `(markdown-header-face-5 ((,class (:bold nil :foreground ,magenta))))
     `(markdown-header-face-6 ((,class (:bold nil :foreground ,violet))))
+    `(markdown-pre-face ((,class (:bold nil :foreground ,fg-base :background ,bg-base))))
+    `(markdown-code-face ((,class (:bold nil :foreground ,fg-base :background ,bg-base))))
 
     ;; mu4e
     `(mu4e-cited-1-face         ((,class (:foreground ,fg-emph))))
