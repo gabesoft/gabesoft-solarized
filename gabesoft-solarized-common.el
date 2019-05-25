@@ -584,6 +584,9 @@
     ;; linum-relative
     `(linum-relative-current-face ((,class (:foreground ,yellow :background ,bg-base :bold t))))
 
+    ;; line-number
+    `(line-number-current-line ((,class (:foreground ,yellow :background ,bg-emph))))
+
     ;; magit
     `(magit-blame-culprit               ((,class (:foreground ,yellow :background ,bg-emph ))))
     `(magit-blame-date                  ((,class (:foreground ,green :background ,bg-emph ))))
