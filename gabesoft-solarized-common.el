@@ -585,7 +585,8 @@
     `(linum-relative-current-face ((,class (:foreground ,yellow :background ,bg-base :bold t))))
 
     ;; line-number
-    `(line-number-current-line ((,class (:foreground ,yellow :background ,bg-emph))))
+    `(line-number-current-line ((,class (:foreground ,yellow :background ,bg-base))))
+    `(line-number ((,class (:foreground ,fg-base :background ,bg-base))))
 
     ;; magit
     `(magit-blame-culprit               ((,class (:foreground ,yellow :background ,bg-emph ))))
