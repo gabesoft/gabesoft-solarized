@@ -421,6 +421,9 @@
     `(guide-key/key-face               ((,class (:foreground ,keyword))))
     `(guide-key/prefix-command-face    ((,class (:foreground ,keyword :inherit bold))))
 
+    ;; hl-todo
+    `(hl-todo ((,class (:background ,bg-base))))
+
     ;; haskell
     `(haskell-pragma-face   ((,class (:foreground ,comment :bold t))))
     `(haskell-operator-face ((,class (:foreground ,orange :bold nil))))
