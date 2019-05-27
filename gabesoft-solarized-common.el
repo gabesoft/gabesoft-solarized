@@ -519,6 +519,13 @@
     `(hydra-face-blue ((,class (:foreground ,blue))))
     `(hydra-face-red ((,class (:foreground ,red))))
 
+    ;; imenu list
+    `(imenu-list-entry-face ((,class (:foreground ,fg-base))))
+    `(imenu-list-entry-face-0 ((,class (:foreground ,fg-base))))
+    `(imenu-list-entry-face-1 ((,class (:foreground ,blue))))
+    `(imenu-list-entry-face-2 ((,class (:foreground ,yellow))))
+    `(imenu-list-entry-face-3 ((,class (:foreground ,green))))
+
     ;; info
     `(info-header-xref    ((,class (:foreground ,func :underline t))))
     `(info-menu           ((,class (:foreground ,suc))))
