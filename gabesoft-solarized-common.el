@@ -422,7 +422,7 @@
     `(guide-key/prefix-command-face    ((,class (:foreground ,keyword :inherit bold))))
 
     ;; hl-todo
-    `(hl-todo ((,class (:background ,bg-base))))
+    `(hl-todo ((,class (:background ,bg-base :foreground ,fg-base :bold nil))))
 
     ;; haskell
     `(haskell-pragma-face   ((,class (:foreground ,comment :bold t))))
